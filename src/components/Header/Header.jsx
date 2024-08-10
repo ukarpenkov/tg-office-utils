@@ -2,20 +2,14 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
+
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { colors, Link } from "@mui/material";
-import { Height } from "@mui/icons-material";
+
 import { Logo } from "../Blocks/HeaderLogo/Logo";
-import { MyLogoSVG } from "../../img/logo/logo";
 
 const pages = ["Текст", "Дата/время", "Финансы"];
 const settings = ["Профиль", "Выйти"];
