@@ -2,7 +2,6 @@ import { Box, Grid, Paper, styled } from "@mui/material";
 import "./App.css";
 import ResponsiveAppBar from "./components/Header/Header";
 import { MainTextArea } from "./components/Blocks/MainTextArea/MainTextArea";
-
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -20,9 +19,6 @@ function App() {
         </Grid>
         <Grid item xs={12}>
           <MainTextArea />
-        </Grid>
-        <Grid item xs={12}>
-          <Item>xs=4</Item>
         </Grid>
       </Grid>
     </Box>

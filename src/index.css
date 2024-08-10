@@ -1,5 +1,10 @@
 body {
-  margin: 0;
+  margin: 0 auto;
+
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
 }
 
 code {
@@ -13,8 +18,8 @@ code {
 
 /* texarea block */
 .main-text-area {
-  min-width: 92%;
-  max-width: 92%;
+  min-width: 99%;
+  max-width: 99%;
   height: 300px;
   max-height: 300px;
   border-radius: 6px;
@@ -25,8 +30,8 @@ code {
 
 .input-textarea {
   align-items: center;
-  width: 100%;
-  display: flex;
+  width: 99%;
+  display: block;
   justify-content: center;
   resize: none;
 }
@@ -35,14 +40,20 @@ textarea::-webkit-resizer {
 }
 
 .main-area {
-  display: flex;
-  width: 100%;
+  padding-left: 2px;
+  padding-right: 2px;
+  display: grid;
+  width: 99%;
+  grid-gap: 15px;
+  justify-items: center;
 }
 
 /* main buttos block */
 .main-buttons-group {
-  display: grid;
+  display: flex;
+  width: 99%;
   justify-items: center;
+  justify-content: space-between;
 }
 
 .activeMod {
