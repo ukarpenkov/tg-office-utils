@@ -1,10 +1,5 @@
 body {
-  margin: 0 auto;
-
-  box-sizing: border-box;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  width: 100%;
+  margin: 0;
 }
 
 code {
@@ -18,8 +13,8 @@ code {
 
 /* texarea block */
 .main-text-area {
-  min-width: 99%;
-  max-width: 99%;
+  min-width: 92%;
+  max-width: 92%;
   height: 300px;
   max-height: 300px;
   border-radius: 6px;
@@ -30,8 +25,8 @@ code {
 
 .input-textarea {
   align-items: center;
-  width: 99%;
-  display: block;
+  width: 100%;
+  display: flex;
   justify-content: center;
   resize: none;
 }
@@ -40,20 +35,14 @@ textarea::-webkit-resizer {
 }
 
 .main-area {
-  padding-left: 2px;
-  padding-right: 2px;
-  display: grid;
-  width: 99%;
-  grid-gap: 15px;
-  justify-items: center;
+  display: flex;
+  width: 100%;
 }
 
 /* main buttos block */
 .main-buttons-group {
-  display: flex;
-  width: 99%;
+  display: grid;
   justify-items: center;
-  justify-content: space-between;
 }
 
 .activeMod {
@@ -62,11 +51,80 @@ textarea::-webkit-resizer {
 
 .copyBtn {
   position: absolute;
-  right: 9px;
+  right: 21px;
   top: 7px;
   cursor: pointer;
 }
 
 .input-textarea {
   position: relative;
+}
+
+@media (max-width: 700px) {
+  body {
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  /* logo block */
+  .logo-text {
+    color: #673ab7;
+  }
+
+  /* texarea block */
+  .main-text-area {
+    min-width: 99%;
+    max-width: 99%;
+    height: 300px;
+    max-height: 300px;
+    border-radius: 6px;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    font-size: 17px;
+  }
+
+  .input-textarea {
+    align-items: center;
+    width: 99%;
+    display: block;
+    justify-content: center;
+    resize: none;
+  }
+  textarea::-webkit-resizer {
+    display: none;
+  }
+
+  .main-area {
+    padding-left: 2px;
+    padding-right: 2px;
+    display: grid;
+    width: 99%;
+    grid-gap: 15px;
+    justify-items: center;
+  }
+
+  /* main buttos block */
+  .main-buttons-group {
+    display: flex;
+    width: 99%;
+    justify-items: center;
+    justify-content: space-between;
+  }
+
+  .activeMod {
+    color: red;
+  }
+  .copyBtn {
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    cursor: pointer;
+  }
 }

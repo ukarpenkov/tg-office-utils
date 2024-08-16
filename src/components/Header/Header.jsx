@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import { Logo } from "../Blocks/HeaderLogo/Logo";
 
-const pages = ["Текст", "Дата/время", "Финансы"];
+const pages = [];
 const settings = ["Профиль", "Выйти"];
 
 function ResponsiveAppBar() {
@@ -38,8 +38,6 @@ function ResponsiveAppBar() {
       position="static"
       style={{
         backgroundColor: "black",
-        minWidth: "100%",
-        maxWidth: "100%",
         margin: "0 auto",
       }}
     >
@@ -89,6 +87,7 @@ function ResponsiveAppBar() {
           <Logo />
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Logo />
           {pages.map((page) => (
             <Button
               key={page}
