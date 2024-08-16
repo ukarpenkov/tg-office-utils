@@ -59,3 +59,14 @@ textarea::-webkit-resizer {
 .activeMod {
   color: red;
 }
+
+.copyBtn {
+  position: absolute;
+  right: 9px;
+  top: 7px;
+  cursor: pointer;
+}
+
+.input-textarea {
+  position: relative;
+}

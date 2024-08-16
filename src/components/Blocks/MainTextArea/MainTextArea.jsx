@@ -16,6 +16,7 @@ import {
   setUpperCase,
 } from "../../../store/textSlice";
 import { useState } from "react";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 export const MainTextArea = () => {
   const dispatch = useDispatch();
@@ -105,6 +106,9 @@ export const MainTextArea = () => {
       </div>
       <div className="input-textarea">
         <textarea className="main-text-area" value={text}></textarea>
+        <div className="copyBtn" onClick={() => navigator.clipboard.writeText(text)}>
+          <ContentCopyIcon />
+        </div>
       </div>
     </div>
   );
