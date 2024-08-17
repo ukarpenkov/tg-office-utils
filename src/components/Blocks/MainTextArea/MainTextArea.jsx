@@ -105,8 +105,11 @@ export const MainTextArea = () => {
         </div>
       </div>
       <div className="input-textarea">
-        <textarea className="main-text-area" value={text}></textarea>
-        <div className="copyBtn" onClick={() => navigator.clipboard.writeText(text)}>
+        <textarea className="main-text-area" value={text} disabled></textarea>
+        <div
+          className="copyBtn"
+          onClick={() => navigator.clipboard.writeText(text)}
+        >
           <ContentCopyIcon />
         </div>
       </div>
