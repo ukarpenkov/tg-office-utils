@@ -5,6 +5,7 @@ import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import FormatTextdirectionLToRIcon from "@mui/icons-material/FormatTextdirectionLToR";
 import LanguageIcon from "@mui/icons-material/Language";
 import EditIcon from "@mui/icons-material/Edit";
+import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -105,7 +106,7 @@ export const MainTextArea = () => {
           </Button>
         </div>
       </div>
-      {/* <div className="main-buttons-group">
+      <div className="main-buttons-group">
         <div className="main-buttonss">
           <Button
             variant="contained"
@@ -162,10 +163,10 @@ export const MainTextArea = () => {
               dispatch(setResetModification(inputText));
             }}
           >
-            <AutorenewIcon />
+            <CleaningServicesIcon />
           </Button>
         </div>
-      </div> */}
+      </div>
       <div className="input-textarea">
         <textarea className="main-text-area" value={text} disabled></textarea>
         <div
