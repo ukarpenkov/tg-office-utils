@@ -4,6 +4,7 @@ import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
 import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import FormatTextdirectionLToRIcon from "@mui/icons-material/FormatTextdirectionLToR";
 import LanguageIcon from "@mui/icons-material/Language";
+import EditIcon from "@mui/icons-material/Edit";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -50,6 +51,67 @@ export const MainTextArea = () => {
             <FormatTextdirectionLToRIcon
               className={isSingleLine ? "activeMod" : null}
             />
+          </Button>
+        </div>
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setUpperCase(text));
+            }}
+          >
+            <TextIncreaseIcon className={isUpperCase ? "activeMod" : null} />
+          </Button>
+        </div>
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setLowerCase(text));
+            }}
+          >
+            <TextDecreaseIcon className={isLowerCase ? "activeMod" : null} />
+          </Button>
+        </div>
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setCapitalize(text));
+            }}
+          >
+            <FormatSizeIcon className={isCapitalizeCase ? "activeMod" : null} />
+          </Button>
+        </div>
+
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setTraslit(text));
+            }}
+          >
+            <LanguageIcon className={isTranslite ? "activeMod" : null} />
+          </Button>
+        </div>
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setResetModification(inputText));
+            }}
+          >
+            <AutorenewIcon />
+          </Button>
+        </div>
+      </div>
+      <div className="main-buttons-group">
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => dispatch(setIsSingleLine(text))}
+          >
+            <EditIcon className={isSingleLine ? "activeMod" : null} />
           </Button>
         </div>
         <div className="main-buttonss">

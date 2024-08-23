@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #17212b;
 }
 
 code {
@@ -74,10 +75,12 @@ textarea {
   border: 1px solid #b1e1f9;
 }
 textarea:hover {
-  border: 1px solid #7cd1fc;
+  border: 1px solid #00feff;
+  background-color: #e9f2f5;
 }
 textarea:focus {
   border: 1px solid #37a0d5;
+  background-color: #fff;
 }
 textarea:focus,
 input:focus {
@@ -106,8 +109,8 @@ input:focus {
   .main-text-area {
     min-width: 99%;
     max-width: 99%;
-    height: 300px;
-    max-height: 300px;
+    height: 200px;
+    max-height: 200px;
     border-radius: 6px;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
@@ -151,5 +154,9 @@ input:focus {
     right: 8px;
     top: 7px;
     cursor: pointer;
+  }
+
+  .css-sghohy-MuiButtonBase-root-MuiButton-root {
+    min-width: 57px !important;
   }
 }

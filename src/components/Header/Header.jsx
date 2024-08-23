@@ -37,46 +37,16 @@ function ResponsiveAppBar() {
     <AppBar
       position="static"
       style={{
-        backgroundColor: "black",
+        backgroundColor: "inherit",
         margin: "0 auto",
       }}
     >
       <Toolbar disableGutters>
-        <Box sx={{ flexGrow: 1 }}>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{
-              display: { xs: "block", md: "none" },
-            }}
-          >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
+        <Box sx={{ flexGrow: 1 }}></Box>
         <Typography
-          variant="h5"
-          noWrap
-          component="a"
           href="/"
           sx={{
-            mr: 2,
-            display: { xs: "flex", md: "none" },
-            flexGrow: 1,
+            flexGrow: 50,
             fontFamily: "monospace",
             fontWeight: 700,
             letterSpacing: ".3rem",
@@ -86,18 +56,6 @@ function ResponsiveAppBar() {
         >
           <Logo />
         </Typography>
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          <Logo />
-          {pages.map((page) => (
-            <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              {page}
-            </Button>
-          ))}
-        </Box>
       </Toolbar>
     </AppBar>
   );

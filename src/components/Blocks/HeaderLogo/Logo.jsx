@@ -4,7 +4,7 @@ import image from "./../../../img/logo/logo.svg";
 export const Logo = () => {
   return (
     <div>
-      <img src={image} alt="" width={"120px"} />
+      <img src={image} alt="" width={"60px"} />
     </div>
   );
 };
