@@ -105,7 +105,7 @@ export const MainTextArea = () => {
           </Button>
         </div>
       </div>
-      <div className="main-buttons-group">
+      {/* <div className="main-buttons-group">
         <div className="main-buttonss">
           <Button
             variant="contained"
@@ -165,7 +165,7 @@ export const MainTextArea = () => {
             <AutorenewIcon />
           </Button>
         </div>
-      </div>
+      </div> */}
       <div className="input-textarea">
         <textarea className="main-text-area" value={text} disabled></textarea>
         <div
