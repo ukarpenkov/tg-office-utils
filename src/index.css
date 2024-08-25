@@ -109,8 +109,8 @@ input:focus {
   .main-text-area {
     min-width: 99%;
     max-width: 99%;
-    height: 200px;
-    max-height: 200px;
+    height: 180px;
+    max-height: 180px;
     border-radius: 6px;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
@@ -118,6 +118,8 @@ input:focus {
   }
 
   .input-textarea {
+    position: relative;
+    right: 4px;
     align-items: center;
     width: 99%;
     display: block;
@@ -129,10 +131,10 @@ input:focus {
   }
 
   .main-area {
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
     display: grid;
-    width: 99%;
+    width: 100%;
     grid-gap: 15px;
     justify-items: center;
     border: none;
@@ -140,10 +142,18 @@ input:focus {
 
   /* main buttos block */
   .main-buttons-group {
+    position: relative;
     display: flex;
-    width: 99%;
+    width: 375px;
     justify-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    text-align: center;
+    right: 8.5px;
+  }
+
+  .main-buttonss-second-group {
+    position: relative;
+    right: 3px;
   }
 
   .activeMod {
@@ -158,13 +168,20 @@ input:focus {
 
   .css-sghohy-MuiButtonBase-root-MuiButton-root {
     min-width: 50px !important;
+    width: 50px !important;
+    max-width: 50px !important;
   }
 }
 
 .replaceInput {
-  width: 130px;
+  width: 100px;
   height: 30px;
   border-radius: 6px;
   border: 2px solid #1976d2;
   padding-left: 8px;
+}
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  min-width: 50px !important;
+  width: 50px !important;
+  max-width: 50px !important;
 }

@@ -113,7 +113,7 @@ export const MainTextArea = () => {
         </div>
       </div>
 
-      <div className="main-buttons-group">
+      <div className="main-buttons-group  main-buttonss-second-group">
         <div className="main-buttonss">
           <input
             className="replaceInput"
