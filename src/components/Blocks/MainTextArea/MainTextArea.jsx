@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import TextIncreaseIcon from "@mui/icons-material/TextIncrease";
 import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
 import FormatSizeIcon from "@mui/icons-material/FormatSize";
@@ -10,9 +10,11 @@ import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setCapitalize,
+  setCleanTextFiled,
   setEditText,
   setIsSingleLine,
   setLowerCase,
+  setReplaceText,
   setResetModification,
   setTraslit,
   setUpperCase,
@@ -29,6 +31,8 @@ export const MainTextArea = () => {
   const isCapitalizeCase = useSelector((state) => state.text.isCapitalizeCase);
   const isTranslite = useSelector((state) => state.text.isTranslite);
   const [inputText, setInputText] = useState(text);
+  const [fromText, setFromText] = useState("");
+  const [toText, setToText] = useState("");
 
   return (
     <div className="main-area">
@@ -40,7 +44,7 @@ export const MainTextArea = () => {
             setInputText(newText);
             dispatch(setEditText(newText));
           }}
-          defaultValue={text}
+          value={inputText}
         />
       </div>
       <div className="main-buttons-group">
@@ -100,67 +104,56 @@ export const MainTextArea = () => {
             variant="contained"
             onClick={() => {
               dispatch(setResetModification(inputText));
+              setToText("");
+              setFromText("");
             }}
           >
             <AutorenewIcon />
           </Button>
         </div>
       </div>
+
       <div className="main-buttons-group">
         <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => dispatch(setIsSingleLine(text))}
-          >
-            <EditIcon className={isSingleLine ? "activeMod" : null} />
-          </Button>
+          <input
+            className="replaceInput"
+            placeholder="Заменить"
+            onChange={(e) => {
+              let newText = e.target.value;
+              setFromText(newText);
+            }}
+            value={fromText}
+          ></input>
         </div>
         <div className="main-buttonss">
           <Button
             variant="contained"
-            onClick={() => {
-              dispatch(setUpperCase(text));
-            }}
+            onClick={() => dispatch(setReplaceText({ text, fromText, toText }))}
           >
-            <TextIncreaseIcon className={isUpperCase ? "activeMod" : null} />
+            <EditIcon />
           </Button>
         </div>
+
         <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setLowerCase(text));
+          <input
+            className="replaceInput"
+            placeholder="На"
+            onChange={(e) => {
+              let newText = e.target.value;
+              setToText(newText);
             }}
-          >
-            <TextDecreaseIcon className={isLowerCase ? "activeMod" : null} />
-          </Button>
-        </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setCapitalize(text));
-            }}
-          >
-            <FormatSizeIcon className={isCapitalizeCase ? "activeMod" : null} />
-          </Button>
+            value={toText}
+          ></input>
         </div>
 
         <div className="main-buttonss">
           <Button
             variant="contained"
             onClick={() => {
-              dispatch(setTraslit(text));
-            }}
-          >
-            <LanguageIcon className={isTranslite ? "activeMod" : null} />
-          </Button>
-        </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setResetModification(inputText));
+              setInputText("");
+              setToText("");
+              setFromText("");
+              dispatch(setCleanTextFiled());
             }}
           >
             <CleaningServicesIcon />

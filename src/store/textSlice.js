@@ -103,6 +103,18 @@ const textSlise = createSlice({
       state.text = action.payload;
       return state;
     },
+    setCleanTextFiled(state) {
+      state.text = "";
+      return state;
+    },
+    setReplaceText(state, action) {
+      state.text = replaceAllCharacters(
+        action.payload.text,
+        action.payload.fromText,
+        action.payload.toText
+      );
+      return state;
+    },
   },
 });
 
@@ -115,6 +127,8 @@ export const {
   setCapitalize,
   setTraslit,
   setResetModification,
+  setCleanTextFiled,
+  setReplaceText,
 } = textSlise.actions;
 
 export function convertToSingleLine(multilineText) {
@@ -222,3 +236,12 @@ function transliterateToCyrillic(text) {
     .map((char) => keyboardMapping[char] || char)
     .join("");
 }
+
+function replaceAllCharacters(text, oldChar, newChar) {
+  return text.split(oldChar).join(newChar);
+}
+
+// Пример использования
+const originalText = "hello world";
+const newText = replaceAllCharacters(originalText, "o", "a");
+console.log(newText); // "hella warld"
