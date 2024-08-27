@@ -19,9 +19,9 @@ code {
   height: 300px;
   max-height: 300px;
   border-radius: 6px;
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-  font-size: 17px;
+  font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 14px;
 }
 
 .input-textarea {
@@ -33,6 +33,11 @@ code {
 }
 textarea::-webkit-resizer {
   display: none;
+}
+
+.main-textarea-top {
+  max-height: 370px;
+  min-height: 180px;
 }
 
 .main-area {
@@ -114,7 +119,7 @@ input:focus {
     border-radius: 6px;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
-    font-size: 17px;
+    font-size: 14px;
   }
 
   .input-textarea {
@@ -128,6 +133,11 @@ input:focus {
   }
   textarea::-webkit-resizer {
     display: none;
+  }
+
+  .main-textarea-top {
+    max-height: 350px;
+    min-height: 180px;
   }
 
   .main-area {

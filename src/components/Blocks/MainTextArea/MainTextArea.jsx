@@ -38,7 +38,7 @@ export const MainTextArea = () => {
     <div className="main-area">
       <div className="input-textarea">
         <textarea
-          className="main-text-area"
+          className="main-text-area main-textarea-top"
           onChange={(e) => {
             let newText = e.target.value;
             setInputText(newText);
