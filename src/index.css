@@ -117,7 +117,7 @@ input:focus {
     height: 180px;
     max-height: 180px;
     border-radius: 6px;
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
     font-size: 14px;
   }
