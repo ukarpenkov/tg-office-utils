@@ -39,6 +39,7 @@ function ResponsiveAppBar() {
       style={{
         backgroundColor: "inherit",
         margin: "0 auto",
+        width: "390px",
       }}
     >
       <Toolbar disableGutters>

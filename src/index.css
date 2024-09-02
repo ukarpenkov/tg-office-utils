@@ -1,6 +1,8 @@
 body {
   margin: 0;
   background-color: #17212b;
+  width: 370px;
+  max-width: 370px;
 }
 
 code {
@@ -14,8 +16,6 @@ code {
 
 /* texarea block */
 .main-text-area {
-  min-width: 92%;
-  max-width: 92%;
   height: 300px;
   max-height: 300px;
   border-radius: 6px;
@@ -26,11 +26,13 @@ code {
 
 .input-textarea {
   align-items: center;
-  width: 100%;
   display: flex;
   justify-content: center;
   resize: none;
+  min-width: 370px;
+  max-width: 370px;
 }
+
 textarea::-webkit-resizer {
   display: none;
 }
@@ -112,8 +114,8 @@ input:focus {
 
   /* texarea block */
   .main-text-area {
-    min-width: 99%;
-    max-width: 99%;
+    min-width: 370px;
+    max-width: 370px;
     height: 180px;
     max-height: 180px;
     border-radius: 6px;
@@ -123,10 +125,9 @@ input:focus {
   }
 
   .input-textarea {
-    position: relative;
-    right: 4px;
     align-items: center;
-    width: 99%;
+    min-width: 370px;
+    max-width: 370px;
     display: block;
     justify-content: center;
     resize: none;
@@ -141,8 +142,6 @@ input:focus {
   }
 
   .main-area {
-    padding-left: 4px;
-    padding-right: 4px;
     display: grid;
     width: 100%;
     grid-gap: 15px;
@@ -154,32 +153,21 @@ input:focus {
   .main-buttons-group {
     position: relative;
     display: flex;
-    width: 375px;
+    width: 370px;
     justify-items: center;
     justify-content: space-around;
     text-align: center;
-    right: 8.5px;
   }
 
   .main-buttonss-second-group {
     position: relative;
-    right: 3px;
   }
 
-  .activeMod {
-    color: red;
-  }
   .copyBtn {
     position: absolute;
     right: 8px;
     top: 7px;
     cursor: pointer;
-  }
-
-  .css-sghohy-MuiButtonBase-root-MuiButton-root {
-    min-width: 50px !important;
-    width: 50px !important;
-    max-width: 50px !important;
   }
 }
 
@@ -190,8 +178,14 @@ input:focus {
   border: 2px solid #1976d2;
   padding-left: 8px;
 }
-.css-sghohy-MuiButtonBase-root-MuiButton-root {
-  min-width: 50px !important;
-  width: 50px !important;
-  max-width: 50px !important;
+.main-buttonss .css-sghohy-MuiButtonBase-root-MuiButton-root {
+  min-width: 50px;
+  width: 50px;
+  max-width: 50px;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-colorPrimary.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-colorPrimary.css-1hw9j7s {
+  min-width: 50px;
+  width: 50px;
+  max-width: 50px;
 }
