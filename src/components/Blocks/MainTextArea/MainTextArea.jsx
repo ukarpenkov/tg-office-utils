@@ -6,6 +6,8 @@ import FormatTextdirectionLToRIcon from "@mui/icons-material/FormatTextdirection
 import LanguageIcon from "@mui/icons-material/Language";
 import EditIcon from "@mui/icons-material/Edit";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -146,6 +148,16 @@ export const MainTextArea = () => {
           ></input>
         </div>
 
+        <div className="main-buttonss">
+          <Button variant="contained" onClick={() => {}}>
+            <ArrowDownwardIcon />
+          </Button>
+        </div>
+        <div className="main-buttonss">
+          <Button variant="contained" onClick={() => {}}>
+            <ArrowUpwardIcon />
+          </Button>
+        </div>
         <div className="main-buttonss">
           <Button
             variant="contained"
