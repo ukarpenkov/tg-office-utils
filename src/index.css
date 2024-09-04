@@ -16,6 +16,7 @@ code {
 
 /* texarea block */
 .main-text-area {
+  transition: height 0.7s;
   height: 300px;
   max-height: 300px;
   border-radius: 6px;
@@ -38,6 +39,7 @@ textarea::-webkit-resizer {
 }
 
 .main-textarea-top {
+  transition: height 1s;
   max-height: 100%;
   min-height: 180px;
 }
@@ -107,17 +109,17 @@ input:focus {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
-  /* logo block */
-  .logo-text {
-    color: #673ab7;
-  }
 
   /* texarea block */
   .main-text-area {
+    transition: height 1s;
+    position: relative;
+    left: 2px;
     min-width: 98%;
     max-width: 98%;
     height: 180px;
     max-height: 180px;
+    min-height: 180px;
     border-radius: 6px;
     font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
@@ -125,6 +127,7 @@ input:focus {
   }
 
   .input-textarea {
+    transition: height 1s;
     align-items: center;
     min-width: 100%;
     max-width: 100%;
@@ -137,8 +140,18 @@ input:focus {
   }
 
   .main-textarea-top {
+    transition: height 0.5s;
+    height: 350px;
     max-height: 350px;
+    position: relative;
+    left: 2px;
+    min-width: 98%;
+    max-width: 98%;
     min-height: 180px;
+    border-radius: 6px;
+    font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    font-size: 14px;
   }
 
   .main-area {
@@ -188,4 +201,12 @@ input:focus {
   min-width: 50px;
   width: 50px;
   max-width: 50px;
+}
+
+.show {
+  display: none;
+}
+
+.hide {
+  display: block;
 }

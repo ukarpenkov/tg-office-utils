@@ -35,12 +35,13 @@ export const MainTextArea = () => {
   const [inputText, setInputText] = useState(text);
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
+  const [isFullTextArea, setFullTextArea] = useState(false);
 
   return (
     <div className="main-area">
       <div className="input-textarea">
         <textarea
-          className="main-text-area main-textarea-top"
+          className={isFullTextArea ? "main-textarea-top " : "main-text-area"}
           onChange={(e) => {
             let newText = e.target.value;
             setInputText(newText);
@@ -147,14 +148,31 @@ export const MainTextArea = () => {
             value={toText}
           ></input>
         </div>
-
-        <div className="main-buttonss">
-          <Button variant="contained" onClick={() => {}}>
+        <div
+          className={
+            isFullTextArea ? "show main-buttonss" : "hide main-buttonss"
+          }
+        >
+          <Button
+            variant="contained"
+            onClick={() => {
+              setFullTextArea(true);
+            }}
+          >
             <ArrowDownwardIcon />
           </Button>
         </div>
-        <div className="main-buttonss">
-          <Button variant="contained" onClick={() => {}}>
+        <div
+          className={
+            isFullTextArea ? "hide main-buttonss" : "show main-buttonss"
+          }
+        >
+          <Button
+            variant="contained"
+            onClick={() => {
+              setFullTextArea(false);
+            }}
+          >
             <ArrowUpwardIcon />
           </Button>
         </div>
