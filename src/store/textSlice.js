@@ -9,6 +9,7 @@ const textSlise = createSlice({
     isUpperCase: false,
     isCapitalizeCase: false,
     isTranslite: false,
+    isReplaceMode: false,
   },
   reducers: {
     setEditText(state, action) {
@@ -100,11 +101,16 @@ const textSlise = createSlice({
       state.isCapitalizeCase = false;
       state.isSingleLine = false;
       state.isTranslite = false;
+      state.isReplaceMode = false;
       state.text = action.payload;
       return state;
     },
     setCleanTextFiled(state) {
       state.text = "";
+      return state;
+    },
+    setReplaceMode(state, action) {
+      state.isReplaceMode = !state.isReplaceMode;
       return state;
     },
     setReplaceText(state, action) {
@@ -129,6 +135,7 @@ export const {
   setResetModification,
   setCleanTextFiled,
   setReplaceText,
+  setReplaceMode,
 } = textSlise.actions;
 
 export function convertToSingleLine(multilineText) {

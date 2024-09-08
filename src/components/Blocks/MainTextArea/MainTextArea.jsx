@@ -9,6 +9,7 @@ import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
+import SyncAltIcon from "@mui/icons-material/SyncAlt";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setCapitalize,
@@ -16,6 +17,7 @@ import {
   setEditText,
   setIsSingleLine,
   setLowerCase,
+  setReplaceMode,
   setReplaceText,
   setResetModification,
   setTraslit,
@@ -30,6 +32,7 @@ export const MainTextArea = () => {
   const isUpperCase = useSelector((state) => state.text.isUpperCase);
   const isLowerCase = useSelector((state) => state.text.isLowerCase);
   const isSingleLine = useSelector((state) => state.text.isSingleLine);
+  const isReplaceMode = useSelector((state) => state.text.isReplaceMode);
   const isCapitalizeCase = useSelector((state) => state.text.isCapitalizeCase);
   const isTranslite = useSelector((state) => state.text.isTranslite);
   const [inputText, setInputText] = useState(text);
@@ -118,6 +121,20 @@ export const MainTextArea = () => {
 
       <div className="main-buttons-group  main-buttonss-second-group">
         <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setReplaceMode());
+            }}
+          >
+            <EditIcon className={isReplaceMode ? "activeMod" : null} />
+          </Button>
+        </div>
+        <div
+          className={
+            !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
+          }
+        >
           <input
             className="replaceInput"
             placeholder="Заменить"
@@ -128,16 +145,27 @@ export const MainTextArea = () => {
             value={fromText}
           ></input>
         </div>
-        <div className="main-buttonss">
+
+        <div
+          className={
+            !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
+          }
+        >
           <Button
             variant="contained"
-            onClick={() => dispatch(setReplaceText({ text, fromText, toText }))}
+            onClick={() => {
+              dispatch(setReplaceText({ text, fromText, toText }));
+            }}
           >
-            <EditIcon />
+            <SyncAltIcon />
           </Button>
         </div>
 
-        <div className="main-buttonss">
+        <div
+          className={
+            !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
+          }
+        >
           <input
             className="replaceInput"
             placeholder="На"
