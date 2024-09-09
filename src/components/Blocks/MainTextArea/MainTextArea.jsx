@@ -10,8 +10,15 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import SyncAltIcon from "@mui/icons-material/SyncAlt";
+import ContentCutIcon from "@mui/icons-material/ContentCut";
+import AddIcon from "@mui/icons-material/Add";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
+import LastPageIcon from "@mui/icons-material/LastPage";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setAddEndText,
+  setAddMode,
+  setAddStartText,
   setCapitalize,
   setCleanTextFiled,
   setEditText,
@@ -21,6 +28,7 @@ import {
   setReplaceText,
   setResetModification,
   setTraslit,
+  setTrimText,
   setUpperCase,
 } from "../../../store/textSlice";
 import { useState } from "react";
@@ -33,11 +41,13 @@ export const MainTextArea = () => {
   const isLowerCase = useSelector((state) => state.text.isLowerCase);
   const isSingleLine = useSelector((state) => state.text.isSingleLine);
   const isReplaceMode = useSelector((state) => state.text.isReplaceMode);
+  const isAddMode = useSelector((state) => state.text.isAddMode);
   const isCapitalizeCase = useSelector((state) => state.text.isCapitalizeCase);
   const isTranslite = useSelector((state) => state.text.isTranslite);
   const [inputText, setInputText] = useState(text);
   const [fromText, setFromText] = useState("");
   const [toText, setToText] = useState("");
+  const [addText, setAddText] = useState("");
   const [isFullTextArea, setFullTextArea] = useState(false);
 
   return (
@@ -130,6 +140,7 @@ export const MainTextArea = () => {
             <EditIcon className={isReplaceMode ? "activeMod" : null} />
           </Button>
         </div>
+
         <div
           className={
             !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
@@ -176,6 +187,63 @@ export const MainTextArea = () => {
             value={toText}
           ></input>
         </div>
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setAddMode(text));
+            }}
+          >
+            <AddIcon className={isAddMode ? "activeMod" : null} />
+          </Button>
+        </div>
+        <div
+          className={!isAddMode ? "show main-buttonss" : "hide main-buttonss"}
+        >
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setAddStartText({ text, addText }));
+            }}
+          >
+            <FirstPageIcon />
+          </Button>
+        </div>
+        <div
+          className={!isAddMode ? "show main-buttonss" : "hide main-buttonss"}
+        >
+          <input
+            className="replaceInput"
+            placeholder="Добавить"
+            onChange={(e) => {
+              let newText = e.target.value;
+              setAddText(newText);
+            }}
+            value={addText}
+          ></input>
+        </div>
+        <div
+          className={!isAddMode ? "show main-buttonss" : "hide main-buttonss"}
+        >
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setAddEndText({ text, addText }));
+            }}
+          >
+            <LastPageIcon />
+          </Button>
+        </div>
+        <div className="main-buttonss">
+          <Button
+            variant="contained"
+            onClick={() => {
+              dispatch(setTrimText(text));
+            }}
+          >
+            <ContentCutIcon />
+          </Button>
+        </div>
         <div
           className={
             isFullTextArea ? "show main-buttonss" : "hide main-buttonss"
@@ -190,6 +258,7 @@ export const MainTextArea = () => {
             <ArrowDownwardIcon />
           </Button>
         </div>
+
         <div
           className={
             isFullTextArea ? "hide main-buttonss" : "show main-buttonss"
@@ -204,6 +273,7 @@ export const MainTextArea = () => {
             <ArrowUpwardIcon />
           </Button>
         </div>
+
         <div className="main-buttonss">
           <Button
             variant="contained"

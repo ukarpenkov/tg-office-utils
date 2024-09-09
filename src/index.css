@@ -114,7 +114,7 @@ input:focus {
   .main-text-area {
     transition: height 1s;
     position: relative;
-    left: 2px;
+    left: 1px;
     min-width: 98%;
     max-width: 98%;
     height: 180px;

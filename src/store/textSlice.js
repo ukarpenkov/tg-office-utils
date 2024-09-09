@@ -10,6 +10,7 @@ const textSlise = createSlice({
     isCapitalizeCase: false,
     isTranslite: false,
     isReplaceMode: false,
+    isAddMode: false,
   },
   reducers: {
     setEditText(state, action) {
@@ -121,6 +122,28 @@ const textSlise = createSlice({
       );
       return state;
     },
+    setTrimText(state, action) {
+      state.text = trimMultilineText(state.text);
+      return state;
+    },
+    setAddMode(state, action) {
+      state.isAddMode = !state.isAddMode;
+      return state;
+    },
+    setAddStartText(state, action) {
+      state.text = addSymbolToStartOfLines(
+        action.payload.text,
+        action.payload.addText
+      );
+      return state;
+    },
+    setAddEndText(state, action) {
+      state.text = addSymbolToEndOfLines(
+        action.payload.text,
+        action.payload.addText
+      );
+      return state;
+    },
   },
 });
 
@@ -136,6 +159,10 @@ export const {
   setCleanTextFiled,
   setReplaceText,
   setReplaceMode,
+  setTrimText,
+  setAddMode,
+  setAddStartText,
+  setAddEndText,
 } = textSlise.actions;
 
 export function convertToSingleLine(multilineText) {
@@ -246,6 +273,26 @@ function transliterateToCyrillic(text) {
 
 function replaceAllCharacters(text, oldChar, newChar) {
   return text.split(oldChar).join(newChar);
+}
+
+function trimMultilineText(text) {
+  return text
+    .split("\n")
+    .map((line) => line.trim())
+    .join("\n");
+}
+
+function addSymbolToStartOfLines(text, symbol) {
+  return text
+    .split("\n")
+    .map((line) => symbol + line)
+    .join("\n");
+}
+function addSymbolToEndOfLines(text, symbol) {
+  return text
+    .split("\n")
+    .map((line) => line + symbol)
+    .join("\n");
 }
 
 // Пример использования
