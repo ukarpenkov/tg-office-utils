@@ -234,7 +234,13 @@ export const MainTextArea = () => {
             <LastPageIcon />
           </Button>
         </div>
-        <div className="main-buttonss">
+        <div
+          className={
+            isAddMode || isReplaceMode
+              ? "show main-buttonss"
+              : "hide main-buttonss"
+          }
+        >
           <Button
             variant="contained"
             onClick={() => {
@@ -274,7 +280,13 @@ export const MainTextArea = () => {
           </Button>
         </div>
 
-        <div className="main-buttonss">
+        <div
+          className={
+            isAddMode || isReplaceMode
+              ? "show main-buttonss"
+              : "hide main-buttonss"
+          }
+        >
           <Button
             variant="contained"
             onClick={() => {

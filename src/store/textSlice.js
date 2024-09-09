@@ -103,6 +103,7 @@ const textSlise = createSlice({
       state.isSingleLine = false;
       state.isTranslite = false;
       state.isReplaceMode = false;
+      state.isAddMode = false;
       state.text = action.payload;
       return state;
     },
@@ -111,6 +112,7 @@ const textSlise = createSlice({
       return state;
     },
     setReplaceMode(state, action) {
+      state.isAddMode = false;
       state.isReplaceMode = !state.isReplaceMode;
       return state;
     },
@@ -127,6 +129,7 @@ const textSlise = createSlice({
       return state;
     },
     setAddMode(state, action) {
+      state.isReplaceMode = false;
       state.isAddMode = !state.isAddMode;
       return state;
     },
