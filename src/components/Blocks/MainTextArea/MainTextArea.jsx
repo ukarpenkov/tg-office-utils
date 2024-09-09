@@ -60,6 +60,12 @@ export const MainTextArea = () => {
             setInputText(newText);
             dispatch(setEditText(newText));
           }}
+          onClick={() => {
+            if (inputText === "Вставь свой текст для форматирования") {
+              setInputText("");
+              dispatch(setEditText(""));
+            }
+          }}
           value={inputText}
         />
       </div>
