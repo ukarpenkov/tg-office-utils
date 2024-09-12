@@ -4,6 +4,8 @@ const textSlise = createSlice({
   name: "text",
   initialState: {
     text: "Вставь свой текст для форматирования",
+    replaceTextFrom: "",
+    replaceTextTo: "",
     isSingleLine: false,
     isLowerCase: false,
     isUpperCase: false,
@@ -23,6 +25,7 @@ const textSlise = createSlice({
       if (state.isSingleLine) {
         state.text = convertToSingleLine(action.payload);
       }
+
       if (state.isCapitalizeCase) {
         state.text = capitalizeFirstAndAfterDot(action.payload.toLowerCase());
       }
@@ -60,6 +63,24 @@ const textSlise = createSlice({
         );
       }
 
+      if (state.replaceTextFrom !== "") {
+        state.text = replaceAllCharacters(
+          action.payload,
+          state.replaceTextFrom,
+          state.replaceTextTo
+        );
+      }
+      return state;
+    },
+    setEditFromText(state, action) {
+      state.replaceTextFrom = action.payload;
+      if (state.replaceTextFrom !== "") {
+        state.isReplaceMode = true;
+      }
+      return state;
+    },
+    setEditFromTo(state, action) {
+      state.replaceTextTo = action.payload;
       return state;
     },
     setUpperCase(state) {
@@ -105,10 +126,14 @@ const textSlise = createSlice({
       state.isReplaceMode = false;
       state.isAddMode = false;
       state.text = action.payload;
+      state.replaceTextFrom = "";
+      state.replaceTextTo = "";
       return state;
     },
     setCleanTextFiled(state) {
       state.text = "";
+      state.replaceTextFrom = "";
+      state.replaceTextTo = "";
       return state;
     },
     setReplaceMode(state, action) {
@@ -166,6 +191,8 @@ export const {
   setAddMode,
   setAddStartText,
   setAddEndText,
+  setEditFromText,
+  setEditFromTo,
 } = textSlise.actions;
 
 export function convertToSingleLine(multilineText) {

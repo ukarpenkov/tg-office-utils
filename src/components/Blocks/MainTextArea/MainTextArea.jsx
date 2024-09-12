@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import TextIncreaseIcon from "@mui/icons-material/TextIncrease";
 import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
 import FormatSizeIcon from "@mui/icons-material/FormatSize";
@@ -21,6 +21,8 @@ import {
   setAddStartText,
   setCapitalize,
   setCleanTextFiled,
+  setEditFromText,
+  setEditFromTo,
   setEditText,
   setIsSingleLine,
   setLowerCase,
@@ -44,9 +46,11 @@ export const MainTextArea = () => {
   const isAddMode = useSelector((state) => state.text.isAddMode);
   const isCapitalizeCase = useSelector((state) => state.text.isCapitalizeCase);
   const isTranslite = useSelector((state) => state.text.isTranslite);
+  const fromText = useSelector((state) => state.text.replaceTextFrom);
+  const toText = useSelector((state) => state.text.replaceTextTo);
   const [inputText, setInputText] = useState(text);
-  const [fromText, setFromText] = useState("");
-  const [toText, setToText] = useState("");
+  // const [fromText, setFromText] = useState("");
+  // const [toText, setEditFromTo] = useState("");
   const [addText, setAddText] = useState("");
   const [isFullTextArea, setFullTextArea] = useState(false);
 
@@ -126,8 +130,7 @@ export const MainTextArea = () => {
             variant="contained"
             onClick={() => {
               dispatch(setResetModification(inputText));
-              setToText("");
-              setFromText("");
+              setAddText("");
             }}
           >
             <AutorenewIcon />
@@ -157,7 +160,7 @@ export const MainTextArea = () => {
             placeholder="Заменить"
             onChange={(e) => {
               let newText = e.target.value;
-              setFromText(newText);
+              dispatch(setEditFromText(newText));
             }}
             value={fromText}
           ></input>
@@ -188,7 +191,7 @@ export const MainTextArea = () => {
             placeholder="На"
             onChange={(e) => {
               let newText = e.target.value;
-              setToText(newText);
+              dispatch(setEditFromTo(newText));
             }}
             value={toText}
           ></input>
@@ -297,8 +300,6 @@ export const MainTextArea = () => {
             variant="contained"
             onClick={() => {
               setInputText("");
-              setToText("");
-              setFromText("");
               dispatch(setCleanTextFiled());
             }}
           >
