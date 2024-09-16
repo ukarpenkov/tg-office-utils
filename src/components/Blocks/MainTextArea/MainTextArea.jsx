@@ -14,6 +14,7 @@ import ContentCutIcon from "@mui/icons-material/ContentCut";
 import AddIcon from "@mui/icons-material/Add";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import LastPageIcon from "@mui/icons-material/LastPage";
+import BalanceIcon from "@mui/icons-material/Balance";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setAddEndText,
@@ -257,6 +258,22 @@ export const MainTextArea = () => {
             }}
           >
             <ContentCutIcon />
+          </Button>
+        </div>
+        <div
+          className={
+            isAddMode || isReplaceMode
+              ? "show main-buttonss"
+              : "hide main-buttonss"
+          }
+        >
+          <Button
+            variant="contained"
+            onClick={() => {
+              setInputText(text);
+            }}
+          >
+            <BalanceIcon />
           </Button>
         </div>
         <div
