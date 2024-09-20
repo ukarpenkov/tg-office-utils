@@ -90,12 +90,11 @@ const textSlise = createSlice({
         );
       }
       if (state.isSingleLine && state.replaceTextFrom !== "") {
-        state.text = convertToSingleLine(
-          replaceAllCharacters(
-            action.payload,
-            state.replaceTextFrom,
-            state.replaceTextTo
-          )
+        state.text = convertToSingleLine(action.payload);
+        state.text = replaceAllCharacters(
+          state.text,
+          state.replaceTextFrom,
+          state.replaceTextTo
         );
       }
       if (
@@ -153,6 +152,13 @@ const textSlise = createSlice({
       state.isSingleLine = !state.isSingleLine;
       if (state.isSingleLine) {
         state.text = convertToSingleLine(state.text);
+      }
+      if (state.isSingleLine && state.replaceTextFrom !== "") {
+        state.text = replaceAllCharacters(
+          convertToSingleLine(action.payload),
+          state.replaceTextFrom,
+          state.replaceTextTo
+        );
       }
       if (!state.isSingleLine) {
         state.text = action.payload;
