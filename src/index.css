@@ -113,8 +113,6 @@ input:focus {
   /* texarea block */
   .main-text-area {
     transition: height 1s;
-    position: relative;
-    left: 1px;
     min-width: 98%;
     max-width: 98%;
     height: 180px;
@@ -143,8 +141,6 @@ input:focus {
     transition: height 0.5s;
     height: 350px;
     max-height: 350px;
-    position: relative;
-    left: 2px;
     min-width: 98%;
     max-width: 98%;
     min-height: 180px;
