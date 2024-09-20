@@ -43,6 +43,9 @@ export const MainTextArea = () => {
   const isUpperCase = useSelector((state) => state.text.isUpperCase);
   const isLowerCase = useSelector((state) => state.text.isLowerCase);
   const isSingleLine = useSelector((state) => state.text.isSingleLine);
+  const isReplaceModevisible = useSelector(
+    (state) => state.text.isReplaceModevisible
+  );
   const isReplaceMode = useSelector((state) => state.text.isReplaceMode);
   const isAddMode = useSelector((state) => state.text.isAddMode);
   const isCapitalizeCase = useSelector((state) => state.text.isCapitalizeCase);
@@ -153,7 +156,7 @@ export const MainTextArea = () => {
 
         <div
           className={
-            !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
+            !isReplaceModevisible ? "show main-buttonss" : "hide main-buttonss"
           }
         >
           <input
@@ -169,7 +172,7 @@ export const MainTextArea = () => {
 
         <div
           className={
-            !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
+            !isReplaceModevisible ? "show main-buttonss" : "hide main-buttonss"
           }
         >
           <Button
@@ -184,7 +187,7 @@ export const MainTextArea = () => {
 
         <div
           className={
-            !isReplaceMode ? "show main-buttonss" : "hide main-buttonss"
+            !isReplaceModevisible ? "show main-buttonss" : "hide main-buttonss"
           }
         >
           <input
@@ -246,7 +249,7 @@ export const MainTextArea = () => {
         </div>
         <div
           className={
-            isAddMode || isReplaceMode
+            isAddMode || isReplaceModevisible
               ? "show main-buttonss"
               : "hide main-buttonss"
           }
@@ -262,7 +265,7 @@ export const MainTextArea = () => {
         </div>
         <div
           className={
-            isAddMode || isReplaceMode
+            isAddMode || isReplaceModevisible
               ? "show main-buttonss"
               : "hide main-buttonss"
           }
@@ -308,7 +311,7 @@ export const MainTextArea = () => {
 
         <div
           className={
-            isAddMode || isReplaceMode
+            isAddMode || isReplaceModevisible
               ? "show main-buttonss"
               : "hide main-buttonss"
           }
