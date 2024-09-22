@@ -36,6 +36,7 @@ import {
 } from "../../../store/textSlice";
 import { useState } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Icon1 } from "../HeaderLogo/icon1";
 
 export const MainTextArea = () => {
   const dispatch = useDispatch();
@@ -53,8 +54,6 @@ export const MainTextArea = () => {
   const fromText = useSelector((state) => state.text.replaceTextFrom);
   const toText = useSelector((state) => state.text.replaceTextTo);
   const [inputText, setInputText] = useState(text);
-  // const [fromText, setFromText] = useState("");
-  // const [toText, setEditFromTo] = useState("");
   const [addText, setAddText] = useState("");
   const [isFullTextArea, setFullTextArea] = useState(false);
 
@@ -83,7 +82,10 @@ export const MainTextArea = () => {
             variant="contained"
             onClick={() => dispatch(setIsSingleLine(text))}
           >
-            <FormatTextdirectionLToRIcon
+            {/* <FormatTextdirectionLToRIcon
+              className={isSingleLine ? "activeMod" : null}
+            /> */}
+            <Icon1
               className={isSingleLine ? "activeMod" : null}
             />
           </Button>
