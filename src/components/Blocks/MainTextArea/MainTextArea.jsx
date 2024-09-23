@@ -37,6 +37,7 @@ import {
 import { useState } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Icon1 } from "../HeaderLogo/icon1";
+import { ModificationButton } from "../../Elements/ModificationButton/ModificationButton";
 
 export const MainTextArea = () => {
   const dispatch = useDispatch();
@@ -77,85 +78,47 @@ export const MainTextArea = () => {
         />
       </div>
       <div className="main-buttons-group">
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => dispatch(setIsSingleLine(text))}
-          >
-            {/* <FormatTextdirectionLToRIcon
-              className={isSingleLine ? "activeMod" : null}
-            /> */}
-            <Icon1
-              className={isSingleLine ? "activeMod" : null}
-            />
-          </Button>
-        </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setUpperCase(text));
-            }}
-          >
-            <TextIncreaseIcon className={isUpperCase ? "activeMod" : null} />
-          </Button>
-        </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setLowerCase(text));
-            }}
-          >
-            <TextDecreaseIcon className={isLowerCase ? "activeMod" : null} />
-          </Button>
-        </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setCapitalize(text));
-            }}
-          >
-            <FormatSizeIcon className={isCapitalizeCase ? "activeMod" : null} />
-          </Button>
-        </div>
-
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setTraslit(text));
-            }}
-          >
-            <LanguageIcon className={isTranslite ? "activeMod" : null} />
-          </Button>
-        </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setResetModification(inputText));
-              setAddText("");
-            }}
-          >
-            <AutorenewIcon />
-          </Button>
-        </div>
+        <ModificationButton
+          Component={FormatTextdirectionLToRIcon}
+          func={() => dispatch(setIsSingleLine(text))}
+          activeCriteria={isSingleLine}
+        />
+        <ModificationButton
+          Component={TextIncreaseIcon}
+          func={() => dispatch(setUpperCase(text))}
+          activeCriteria={isUpperCase}
+        />
+        <ModificationButton
+          Component={TextDecreaseIcon}
+          func={() => dispatch(setLowerCase(text))}
+          activeCriteria={isLowerCase}
+        />
+        <ModificationButton
+          Component={FormatSizeIcon}
+          func={() => dispatch(setCapitalize(text))}
+          activeCriteria={isCapitalizeCase}
+        />
+        <ModificationButton
+          Component={LanguageIcon}
+          func={() => dispatch(setTraslit(text))}
+          activeCriteria={isTranslite}
+        />
+        <ModificationButton
+          Component={AutorenewIcon}
+          func={() => {
+            dispatch(setResetModification(inputText));
+            setAddText("");
+          }}
+          activeCriteria={""}
+        />
       </div>
 
       <div className="main-buttons-group  main-buttonss-second-group">
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setReplaceMode());
-            }}
-          >
-            <EditIcon className={isReplaceMode ? "activeMod" : null} />
-          </Button>
-        </div>
-
+        <ModificationButton
+          Component={EditIcon}
+          func={() => dispatch(setReplaceMode())}
+          activeCriteria={isReplaceMode}
+        />
         <div
           className={
             !isReplaceModevisible ? "show main-buttonss" : "hide main-buttonss"
@@ -171,7 +134,6 @@ export const MainTextArea = () => {
             value={fromText}
           ></input>
         </div>
-
         <div
           className={
             !isReplaceModevisible ? "show main-buttonss" : "hide main-buttonss"
@@ -186,7 +148,6 @@ export const MainTextArea = () => {
             <SyncAltIcon />
           </Button>
         </div>
-
         <div
           className={
             !isReplaceModevisible ? "show main-buttonss" : "hide main-buttonss"
@@ -202,16 +163,11 @@ export const MainTextArea = () => {
             value={toText}
           ></input>
         </div>
-        <div className="main-buttonss">
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setAddMode(text));
-            }}
-          >
-            <AddIcon className={isAddMode ? "activeMod" : null} />
-          </Button>
-        </div>
+        <ModificationButton
+          Component={AddIcon}
+          func={() => dispatch(setAddMode(text))}
+          activeCriteria={isAddMode}
+        />
         <div
           className={!isAddMode ? "show main-buttonss" : "hide main-buttonss"}
         >
