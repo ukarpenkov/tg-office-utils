@@ -17,111 +17,35 @@ const textSlise = createSlice({
   },
   reducers: {
     setEditText(state, action) {
+      let resultText = action.payload;
+
       if (state.isLowerCase) {
-        state.text = action.payload.toLowerCase();
+        resultText = resultText.toLowerCase();
+      } else if (state.isUpperCase) {
+        resultText = resultText.toUpperCase();
       }
-      if (state.isUpperCase) {
-        state.text = action.payload.toUpperCase();
-      }
+
       if (state.isSingleLine) {
-        state.text = convertToSingleLine(action.payload);
+        resultText = convertToSingleLine(resultText);
       }
+
       if (state.isCapitalizeCase) {
-        state.text = capitalizeFirstAndAfterDot(action.payload.toLowerCase());
+        resultText = capitalizeFirstAndAfterDot(resultText);
       }
+
       if (state.isTranslite) {
-        state.text = transliterateToCyrillic(action.payload);
+        resultText = transliterateToCyrillic(resultText);
       }
+
       if (state.replaceTextFrom !== "") {
-        state.text = replaceAllCharacters(
-          action.payload,
+        resultText = replaceAllCharacters(
+          resultText,
           state.replaceTextFrom,
           state.replaceTextTo
         );
-      }
-      if (state.isSingleLine && state.isUpperCase) {
-        state.text = convertToSingleLine(action.payload).toUpperCase();
-      }
-      if (state.isTranslite && state.isUpperCase) {
-        state.text = transliterateToCyrillic(action.payload).toUpperCase();
-      }
-      if (state.replaceTextFrom !== "" && state.isUpperCase) {
-        state.text = replaceAllCharacters(
-          action.payload,
-          state.replaceTextFrom,
-          state.replaceTextTo
-        ).toUpperCase();
       }
 
-      if (state.isSingleLine && state.isLowerCase) {
-        state.text = convertToSingleLine(action.payload).toLowerCase();
-      }
-      if (state.isTranslite && state.isLowerCase) {
-        state.text = transliterateToCyrillic(action.payload).toLowerCase();
-      }
-      if (state.replaceTextFrom !== "" && state.isLowerCase) {
-        state.text = replaceAllCharacters(
-          action.payload.toLowerCase(),
-          state.replaceTextFrom,
-          state.replaceTextTo
-        ).toLowerCase();
-      }
-      if (state.isSingleLine && state.isCapitalizeCase) {
-        state.text = capitalizeFirstAndAfterDot(
-          convertToSingleLine(action.payload.toLowerCase())
-        );
-      }
-      if (state.isTranslite && state.isCapitalizeCase) {
-        state.text = capitalizeFirstAndAfterDot(
-          transliterateToCyrillic(action.payload.toLowerCase())
-        );
-      }
-      if (state.replaceTextFrom !== "" && state.isCapitalizeCase) {
-        state.text = capitalizeFirstAndAfterDot(
-          replaceAllCharacters(
-            action.payload.toLowerCase(),
-            state.replaceTextFrom,
-            state.replaceTextTo
-          )
-        );
-      }
-      if (state.isTranslite && state.isSingleLine) {
-        state.text = convertToSingleLine(
-          transliterateToCyrillic(action.payload)
-        );
-      }
-      if (state.isSingleLine && state.replaceTextFrom !== "") {
-        state.text = convertToSingleLine(action.payload);
-        state.text = replaceAllCharacters(
-          state.text,
-          state.replaceTextFrom,
-          state.replaceTextTo
-        );
-      }
-      if (
-        state.isSingleLine &&
-        state.isUpperCase &&
-        state.replaceTextFrom !== ""
-      ) {
-        state.text = convertToSingleLine(
-          replaceAllCharacters(
-            action.payload,
-            state.replaceTextFrom,
-            state.replaceTextTo
-          ).toUpperCase()
-        );
-      }
-      if (
-        !state.isUpperCase &&
-        !state.isLowerCase &&
-        !state.isSingleLine &&
-        !state.isCapitalizeCase &&
-        state.replaceTextFrom === "" &&
-        !state.isTranslite
-      ) {
-        state.text = action.payload;
-      }
-
+      state.text = resultText;
       return state;
     },
     setEditFromText(state, action) {
@@ -222,7 +146,6 @@ const textSlise = createSlice({
       return state;
     },
     setAddMode(state, action) {
-      // state.isReplaceMode = false;
       state.isReplaceModevisible = false;
       state.isAddMode = !state.isAddMode;
       return state;
