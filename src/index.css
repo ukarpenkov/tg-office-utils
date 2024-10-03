@@ -19,8 +19,8 @@ code {
   transition: height 0.7s;
   position: relative;
   left: 1px;
-  height: 310px;
-  max-height: 310px;
+  height: 305px;
+  max-height: 305x;
   border-radius: 6px;
   font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
@@ -117,9 +117,9 @@ input:focus {
     transition: height 1s;
     min-width: 98%;
     max-width: 98%;
-    height: 193px;
-    max-height: 193px;
-    min-height: 193px;
+    height: 182px;
+    max-height: 182px;
+    min-height: 182px;
     border-radius: 6px;
     font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
@@ -141,8 +141,8 @@ input:focus {
 
   .main-textarea-top {
     transition: height 0.5s;
-    height: 350px;
-    max-height: 350px;
+    height: 336px;
+    max-height: 336px;
     min-width: 98%;
     max-width: 98%;
     min-height: 180px;

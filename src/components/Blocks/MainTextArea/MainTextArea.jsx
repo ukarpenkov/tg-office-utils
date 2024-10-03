@@ -34,7 +34,7 @@ import {
   setTrimText,
   setUpperCase,
 } from "../../../store/textSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { Icon1 } from "../HeaderLogo/icon1";
 import { ModificationButton } from "../../Elements/ModificationButton/ModificationButton";
@@ -57,7 +57,9 @@ export const MainTextArea = () => {
   const [inputText, setInputText] = useState(text);
   const [addText, setAddText] = useState("");
   const [isFullTextArea, setFullTextArea] = useState(false);
-
+  useEffect(() => {
+    window.savedBotText = text;
+  }, [text]);
   return (
     <div className="main-area">
       <div className="input-textarea">
@@ -290,7 +292,6 @@ export const MainTextArea = () => {
         <div
           className="copyBtn"
           onClick={() => navigator.clipboard.writeText(text)}
-          // onClick={() => window.Telegram.WebApp.sendData("HELLO")}
         >
           <ContentCopyIcon />
         </div>
