@@ -17,6 +17,8 @@ code {
 /* texarea block */
 .main-text-area {
   transition: height 0.7s;
+  position: relative;
+  left: 1px;
   height: 310px;
   max-height: 310px;
   border-radius: 6px;

@@ -290,6 +290,7 @@ export const MainTextArea = () => {
         <div
           className="copyBtn"
           onClick={() => navigator.clipboard.writeText(text)}
+          // onClick={() => window.Telegram.WebApp.sendData("HELLO")}
         >
           <ContentCopyIcon />
         </div>
