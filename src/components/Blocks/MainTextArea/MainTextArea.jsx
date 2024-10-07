@@ -128,7 +128,7 @@ export const MainTextArea = () => {
         >
           <input
             className="replaceInput"
-            placeholder="Заменить"
+            placeholder="Replace"
             onChange={(e) => {
               let newText = e.target.value;
               dispatch(setEditFromText(newText));
@@ -157,7 +157,7 @@ export const MainTextArea = () => {
         >
           <input
             className="replaceInput"
-            placeholder="На"
+            placeholder="with"
             onChange={(e) => {
               let newText = e.target.value;
               dispatch(setEditFromTo(newText));
@@ -187,7 +187,7 @@ export const MainTextArea = () => {
         >
           <input
             className="replaceInput"
-            placeholder="Добавить"
+            placeholder="Add"
             onChange={(e) => {
               let newText = e.target.value;
               setAddText(newText);
