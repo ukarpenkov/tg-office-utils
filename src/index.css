@@ -295,3 +295,14 @@ input:focus {
     cursor: pointer;
   }
 }
+
+.header-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-icon {
+  position: relative;
+  right: 8px;
+}

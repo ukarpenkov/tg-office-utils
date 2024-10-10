@@ -49,6 +49,7 @@ function ResponsiveAppBar() {
           }}
         >
           <Logo />
+         
         </Typography>
       </Toolbar>
     </AppBar>
