@@ -1,4 +1,5 @@
 # Office-utils
+<<<<<<< HEAD
 
 A Telegram bot application designed to provide various office-related utilities to enhance productivity and streamline tasks.
 
@@ -43,3 +44,9 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 ## License
 
 This project is licensed under the MIT License.
+=======
+Telegram App
+## [APP LINK](https://t.me/OfficeToolAppBot/OfficeUtils)
+## [BOT LINK](https://t.me/OfficeToolAppBot)
+
+>>>>>>> dce58e904e28863d8d02a1f7afd7d7c8ac2a94bc
