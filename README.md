@@ -28,12 +28,7 @@ A Telegram bot application designed to provide various office-related utilities 
    ```
 
 ## Usage
-
-1. Start the bot:
-   ```bash
-   npm start
-   ```
-2. Open Telegram and interact with the bot using the provided [Bot Link](https://t.me/OfficeToolAppBot).
+ Open Telegram and interact with the bot using the provided [Bot Link](https://t.me/OfficeToolAppBot).
 
 ## Contributing
 
