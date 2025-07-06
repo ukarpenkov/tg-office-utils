@@ -18,8 +18,9 @@ code {
 .main-text-area {
   transition: height 0.7s;
   position: relative;
+  left: 1px;
   height: 305px;
-  max-height: 305px;
+  max-height: 305x;
   border-radius: 6px;
   font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
@@ -50,13 +51,10 @@ textarea::-webkit-resizer {
   width: 100%;
 }
 
-/* main buttons block */
+/* main buttos block */
 .main-buttons-group {
   display: grid;
   justify-items: center;
-  align-content: center;
-  gap: 15px;
-  padding: 0 20px;
 }
 
 .activeMod {
@@ -162,7 +160,7 @@ input:focus {
     border: none;
   }
 
-  /* main buttons block */
+  /* main buttos block */
   .main-buttons-group {
     position: relative;
     display: flex;
@@ -170,7 +168,6 @@ input:focus {
     justify-items: center;
     justify-content: space-around;
     text-align: center;
-    padding: 0;
   }
 
   .main-buttonss-second-group {
@@ -182,42 +179,6 @@ input:focus {
     right: 8px;
     top: 7px;
     cursor: pointer;
-  }
-}
-
-@media (min-width: 701px) {
-  .main-area {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    gap: 20px;
-  }
-
-  .main-text-area {
-    flex: 0 1 45%;
-    height: 305px;
-    max-height: 305px;
-    min-height: 305px;
-  }
-
-  .main-buttons-group {
-    flex: 0 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    align-self: center;
-    padding: 0 20px;
-  }
-
-  .copyBtn {
-    position: absolute;
-    right: 4%;
-    top: 7px;
-    cursor: pointer;
-    border-radius: 4px;
   }
 }
 
@@ -251,13 +212,86 @@ input:focus {
   display: block;
 }
 
-.header-panel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+@media (min-width: 800px) {
+  body {
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+  }
 
-.search-icon {
-  position: relative;
-  right: 8px;
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+
+  /* texarea block */
+  .main-text-area {
+    transition: height 1s;
+    min-width: 98%;
+    max-width: 98%;
+    height: 170x;
+    max-height: 170px;
+    min-height: 170px;
+    border-radius: 6px;
+    font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    font-size: 14px;
+  }
+
+  .input-textarea {
+    transition: height 1s;
+    align-items: center;
+    min-width: 100%;
+    max-width: 100%;
+    display: block;
+    justify-content: center;
+    resize: none;
+  }
+  textarea::-webkit-resizer {
+    display: none;
+  }
+
+  .main-textarea-top {
+    transition: height 0.5s;
+    height: 300px;
+    max-height: 300px;
+    min-width: 98%;
+    max-width: 98%;
+    min-height: 180px;
+    border-radius: 6px;
+    font-family: monospace, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    font-size: 14px;
+  }
+
+  .main-area {
+    display: grid;
+    width: 100%;
+    grid-gap: 15px;
+    justify-items: center;
+    border: none;
+  }
+
+  /* main buttos block */
+  .main-buttons-group {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .main-buttonss-second-group {
+    position: relative;
+  }
+
+  .copyBtn {
+    position: absolute;
+    right: 20px;
+    top: 7px;
+    cursor: pointer;
+  }
 }
