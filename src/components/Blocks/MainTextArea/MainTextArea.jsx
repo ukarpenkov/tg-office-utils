@@ -3,7 +3,8 @@ import TextIncreaseIcon from "@mui/icons-material/TextIncrease";
 import TextDecreaseIcon from "@mui/icons-material/TextDecrease";
 import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import FormatTextdirectionLToRIcon from "@mui/icons-material/FormatTextdirectionLToR";
-import LanguageIcon from "@mui/icons-material/Language";
+import CodeIcon from "@mui/icons-material/Code";
+// import LanguageIcon from "@mui/icons-material/Language";
 import EditIcon from "@mui/icons-material/Edit";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -71,7 +72,7 @@ export const MainTextArea = () => {
             dispatch(setEditText(newText));
           }}
           onClick={() => {
-            if (inputText === "Вставь свой текст для форматирования") {
+            if (inputText === "Insert your text for formatting here...") {
               setInputText("");
               dispatch(setEditText(""));
             }
@@ -101,7 +102,7 @@ export const MainTextArea = () => {
           activeCriteria={isCapitalizeCase}
         />
         <ModificationButton
-          Component={LanguageIcon}
+          Component={CodeIcon}
           func={() => dispatch(setTraslit(text))}
           activeCriteria={isTranslite}
         />

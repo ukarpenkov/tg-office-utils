@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const textSlise = createSlice({
   name: "text",
   initialState: {
-    text: "Вставь свой текст для форматирования",
+    text: "Insert your text for formatting here...",
     replaceTextFrom: "",
     replaceTextTo: "",
     isSingleLine: false,
@@ -63,6 +63,7 @@ const textSlise = createSlice({
       state.text = state.text.toUpperCase();
       state.isLowerCase = false;
       state.isCapitalizeCase = false;
+      state.isTranslite = false;
       state.isUpperCase = true;
       return state;
     },
@@ -70,6 +71,7 @@ const textSlise = createSlice({
       state.text = state.text.toLowerCase();
       state.isUpperCase = false;
       state.isCapitalizeCase = false;
+      state.isTranslite = false;
       state.isLowerCase = true;
       return state;
     },
@@ -93,14 +95,15 @@ const textSlise = createSlice({
     setCapitalize(state) {
       state.isLowerCase = false;
       state.isUpperCase = false;
+      state.isTranslite = false;
       state.isCapitalizeCase = true;
       state.text = capitalizeFirstAndAfterDot(state.text.toLowerCase());
     },
     setTraslit(state) {
+      state.isLowerCase = false;
+      state.isUpperCase = false;
+      state.isCapitalizeCase = false;
       state.isTranslite = true;
-      state.isReplaceMode = false;
-      state.replaceTextFrom = "";
-      state.replaceTextTo = "";
       state.text = transliterateToCyrillic(state.text);
     },
     setResetModification(state, action) {
@@ -189,10 +192,7 @@ export const {
 } = textSlise.actions;
 
 export function convertToSingleLine(multilineText) {
-  // Заменяем все переводы строки на пробелы
   const singleLineText = multilineText.replace(/\n/g, " ");
-
-  // Заменяем повторяющиеся пробелы на один
   return singleLineText.replace(/\s+/g, " ");
 }
 
@@ -200,16 +200,28 @@ function capitalizeFirstAndAfterDot(str) {
   return str
     .split(/(\. |\.)/)
     .map((part, index) => {
-      // Если это не разделитель(точка), то преобразуем
       if (index === 0 || part.trim().length > 0) {
         return part.charAt(0).toUpperCase() + part.slice(1);
       }
-      return part; // Возвращаем точки или пробелы без изменений
+      return part;
     })
     .join("");
 }
 
 function transliterateToCyrillic(text) {
+  return text
+    .trim()
+    .split(/[\s_-]+/)
+    .map((word, index) => {
+      if (index === 0) {
+        return word.toLowerCase();
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join("");
+}
+
+function transliterateToCyrillicOLD(text) {
   const keyboardMapping = {
     // Строчные буквы
     q: "й",
